@@ -11,7 +11,7 @@ class CreateUserService {
       .values({ id, name, email })
       .execute();
 
-    return user;
+    return user.identifiers[0];
   }
 }
 
