@@ -1,12 +1,17 @@
+import { getRepository } from "typeorm";
 import { IUser } from "../interfaces/create-user.interface";
+import { UserEntity } from "../entities/user.entity";
 
 class CreateUserService {
-  exec({ name, email }: IUser) {
-    const data = [];
+  async exec({ id, name, email }: IUser) {
+    const user = await getRepository(UserEntity)
+      .createQueryBuilder()
+      .insert()
+      .into(UserEntity)
+      .values({ id, name, email })
+      .execute();
 
-    data.push({ name, email });
-
-    return data;
+    return user;
   }
 }
 

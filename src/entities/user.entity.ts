@@ -2,7 +2,7 @@ import { Column, Entity, PrimaryColumn } from "typeorm";
 
 // Faz a ligação com a tabela users no db
 @Entity("users")
-class User {
+class UserEntity {
   @PrimaryColumn()
   id: string;
 
@@ -13,4 +13,4 @@ class User {
   email: string;
 }
 
-export { User };
+export { UserEntity };
